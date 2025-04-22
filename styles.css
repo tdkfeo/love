@@ -1,21 +1,25 @@
+/* Body Styles */
 body {
   margin: 0;
   padding: 0;
-  font-family: "Comic Sans MS", "Comic Sans", cursive;
-  background-color: #fff0f6;
+  font-family: "Baloo", "Comic Sans", cursive;
+  background: linear-gradient(45deg, #ff9a9e, #fad0c4, #fbc2eb, #ff9a9e);
+  background-size: 400% 400%;
+  animation: gradientAnimation 10s ease infinite;
+  overflow: hidden;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  overflow: hidden;
 }
 
+/* Container Styles */
 .container {
   text-align: center;
   padding: 20px;
   border: 3px dashed #ff69b4;
   border-radius: 15px;
-  background: #ffe4e1;
+  background: rgba(255, 255, 255, 0.8);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
@@ -44,11 +48,44 @@ body {
 
 #changeTextButton:hover {
   background-color: #ff1493;
+  
 }
 
+/* Music Player Styles */
+.music-player {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+#musicButton {
+  background-color: #ff6f91;
+  border: none;
+  color: white;
+  padding: 10px 15px;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#musicButton:hover {
+  background-color: #ff1493;
+}
+
+/* Floating Hearts Animation */
 .heart-container {
-  position: relative;
-  margin-top: 20px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;
 }
 
 .heart {
@@ -57,7 +94,7 @@ body {
   height: 20px;
   background-color: #ff69b4;
   transform: rotate(45deg);
-  animation: float 4s infinite;
+  animation: float 6s infinite;
 }
 
 .heart::before,
@@ -81,18 +118,21 @@ body {
 }
 
 .heart:nth-child(1) {
-  left: 50px;
+  left: 10%;
   animation-delay: 0s;
+  animation-duration: 5s;
 }
 
 .heart:nth-child(2) {
-  left: 100px;
-  animation-delay: 1s;
+  left: 30%;
+  animation-delay: 2s;
+  animation-duration: 6s;
 }
 
 .heart:nth-child(3) {
-  left: 150px;
-  animation-delay: 2s;
+  left: 50%;
+  animation-delay: 4s;
+  animation-duration: 7s;
 }
 
 @keyframes float {
@@ -104,7 +144,155 @@ body {
     opacity: 0.7;
   }
   100% {
-    transform: translateY(-200px) rotate(45deg);
+    transform: translateY(-100vh) rotate(45deg);
+    opacity: 0;
+  }
+}
+
+/* Gradient Background Animation */
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Anniversary Message */
+.anniversary-message {
+  font-size: 1.8rem;
+  color: #ff1493;
+  margin-top: 20px;
+  animation: fadeInOut 5s ease-in-out;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Fade-in and fade-out animation */
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Animated Button */
+.animated-button {
+  transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+.animated-button:hover {
+  transform: scale(1.1);
+  background-color: #ff69b4;
+}
+
+/* Text Animation */
+.animated-text {
+  animation: fadeInScale 1s ease-out;
+}
+
+@keyframes fadeInScale {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Floating Heart Styles */
+.heart-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.heart {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: #ff69b4;
+  transform: rotate(45deg);
+  animation: float 6s infinite;
+}
+
+.heart::before,
+.heart::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: #ff69b4;
+  border-radius: 50%;
+}
+
+.heart::before {
+  top: -10px;
+  left: 0;
+}
+
+.heart::after {
+  top: 0;
+  left: -10px;
+}
+
+.heart:nth-child(1) {
+  left: 10%;
+  animation-delay: 0s;
+  animation-duration: 5s;
+}
+
+.heart:nth-child(2) {
+  left: 30%;
+  animation-delay: 2s;
+  animation-duration: 6s;
+}
+
+.heart:nth-child(3) {
+  left: 50%;
+  animation-delay: 4s;
+  animation-duration: 7s;
+}
+
+.heart:nth-child(4) {
+  left: 70%;
+  animation-delay: 1s;
+  animation-duration: 5.5s;
+}
+
+.heart:nth-child(5) {
+  left: 90%;
+  animation-delay: 3s;
+  animation-duration: 6.5s;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0) rotate(45deg);
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateY(-100vh) rotate(45deg);
     opacity: 0;
   }
 }
